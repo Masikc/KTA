@@ -7,8 +7,16 @@ import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TestGUI {
+	
+	String mat;
+	double Kom;
 
 	private JFrame frame;
 	private JTextField textFieldKpov;
@@ -41,7 +49,7 @@ public class TestGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 460, 325);
+		frame.setBounds(100, 100, 460, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -109,10 +117,98 @@ public class TestGUI {
 			    "34ум3л",
 			    "34умл3т"
 			};
-		
-		JComboBox comboBoxMarka = new JComboBox(marki);
+		JComboBox<String> comboBoxMarka = new JComboBox<String>(marki);
 		comboBoxMarka.setBounds(135, 8, 143, 20);
 		frame.getContentPane().add(comboBoxMarka);
+		comboBoxMarka.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mat = (String) comboBoxMarka.getSelectedItem();
+				switch (mat) {
+		        case "бф36-12":
+		        case "юмб-300":
+		        case "фя6-й":
+		        case "фя3-дй":
+		        case "ум67блрчк": Kom=0.02;
+		                 break;
+		        case "ум62лйбч":
+		        case "ум60лрбч":
+		        case "ум82рчлб": Kom=0.03;
+		                 break;
+		        case "ум56лрч":
+		        case "ум70блрч":
+		        case "бу4-к": Kom=0.04;
+		                 break;
+		        case "95у18":
+		        case "ум35брч": Kom=0.05;
+		                 break;
+		        case "43у3ямлбтю": Kom=0.06;
+		                 break;
+		        case "38м5лятю": Kom=0.065;
+		                 break;
+		        case "42в2цямл": Kom=0.068;
+		                 break;
+		        case "30мурч":
+		        case "ум38бр":
+		        case "ум38рчп": Kom=0.07;
+		                 break;
+		        case "28у3ямбв":
+		        case "30у2цям2бл": Kom=0.085;
+		                 break;
+		        case "10у11м23р3лп":
+		        case "15у18м21я4рчп": Kom=0.09;
+		                 break;
+		        case "бр3": Kom=0.12;         
+		                 break;
+		        case "08у15м24б4рп":
+		        case "бр14":
+		        case "бр22":
+		        case "бр15": Kom=0.13;
+		                 break;
+		        case "бр6": Kom=0.135;
+		                 break;
+		        case "20у13":
+		        case "30у13":
+		        case "12у25м16р7юп": Kom=0.15;
+		                 break;
+		        case "33у3ямлбтю":
+		        case "38у3ямлбтю": Kom=0.17;
+		                 break;
+		        case "45у14м14б2л":
+		        case "бр4":
+		        case "бр5": Kom=0.19;
+		                 break;
+		        case "20у23м18":
+		        case "12у21м5р":
+		        case "09у15м9ч": Kom=0.21;
+		                 break;
+		        case "20у3лбт":
+		        case "40у13":
+		        case "лу17м2":
+		        case "20у17м2":
+		        case "12у18м10р":
+		        case "07у16м6":
+		        case "бр1":
+		        case "м18й9л5р": Kom=0.24;
+		                 break;
+		        case "09у16м46": Kom=0.26;
+		                 break;
+		        case "10у23м18": Kom=0.29;
+		                 break;
+		        case "11у11м2блт":
+		        case "1у12м2блт": Kom=0.3;
+		                 break;
+		        case "12у13": Kom=0.35;
+		                 break;
+		        case "15ул5":
+		        case "15у6яч":
+		        case "25у13м2": Kom=0.5;
+		                 break;
+		        case "34ум3л":
+		        case "34умл3т": Kom=0.56;
+		                 break;
+		    }
+				}
+			});
 		
 		JLabel labelKrez = new JLabel("\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u0435\u0439 \u0434\u0435\u0442\u0430\u043B\u0438, \u043E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u043C\u044B\u0445 \u0440\u0435\u0437\u0430\u043D\u0438\u0435\u043C:");
 		labelKrez.setBounds(10, 36, 381, 14);
@@ -234,11 +330,24 @@ public class TestGUI {
 		
 		JSpinner spinnerVd = new JSpinner();
 		spinnerVd.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
-  	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
+  	 		public void stateChanged(ChangeEvent e) {
   	 			int Vd = (Integer)spinnerVd.getValue();
   	 			}
   	 		});
 		spinnerVd.setBounds(401, 258, 29, 20);
 		frame.getContentPane().add(spinnerVd);
+		
+		JTextArea textAreaKt = new JTextArea();
+		textAreaKt.setBounds(10, 320, 420, 30);
+		frame.getContentPane().add(textAreaKt);
+		
+		JButton buttonKt = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
+		buttonKt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textAreaKt.setText(""+Kom);
+				}
+		});
+		buttonKt.setBounds(10, 286, 115, 23);
+		frame.getContentPane().add(buttonKt);
 	}
 }
