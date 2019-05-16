@@ -17,6 +17,19 @@ public class TestGUI {
 	
 	String mat;
 	double Kom;
+	double Kk;
+	double Kp;
+	double Kv;
+	double Kc;
+	double Ksl;
+	String Kv10otv;
+	double Kue;
+	int Ne;
+	int Nue;
+	double Vz;
+	double Kim;
+	double Kt;
+	String Kpov;
 
 	private JFrame frame;
 	private JTextField textFieldKpov;
@@ -206,7 +219,7 @@ public class TestGUI {
 		        case "34ум3л":
 		        case "34умл3т": Kom=0.56;
 		                 break;
-		    }
+		                 }
 				}
 			});
 		
@@ -218,6 +231,9 @@ public class TestGUI {
 		spinnerKrez.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Krez = (Integer)spinnerKrez.getValue();
+  	 			double A1=0;
+  	 			if (Krez>20) A1=0.2;
+  	 	        Kk=1-A1;
   	 			}
   	 		});
 		spinnerKrez.setBounds(401, 33, 29, 20);
@@ -231,6 +247,10 @@ public class TestGUI {
 		spinnerKtreb.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Ktreb = (Integer)spinnerKtreb.getValue();
+  	 			double A2=0;
+  	 	        if (Ktreb>0 && Ktreb<=2) A2=0.2;
+  	 	        if (Ktreb>2) A2=0.4;
+  	 	        Kp=1-A2;
   	 			}
   	 		});
 		spinnerKtreb.setBounds(401, 58, 29, 20);
@@ -243,7 +263,10 @@ public class TestGUI {
 		JSpinner spinnerKmeh = new JSpinner();
 		spinnerKmeh.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
-  	 			int Ktmeh = (Integer)spinnerKmeh.getValue();
+  	 			int Kmeh = (Integer)spinnerKmeh.getValue();
+  	 			double A3=0;
+  	 	        if (Kmeh>2) A3=0.1;
+  	 	        Kv=1-A3;
   	 			}
   	 		});
 		spinnerKmeh.setBounds(401, 83, 29, 20);
@@ -258,9 +281,15 @@ public class TestGUI {
 			    "ДЮ"
 			};
 		
-		JComboBox comboBoxKv10 = new JComboBox(Kv10);
+		JComboBox<String> comboBoxKv10 = new JComboBox<String>(Kv10);
 		comboBoxKv10.setBounds(401, 108, 28, 20);
 		frame.getContentPane().add(comboBoxKv10);
+		comboBoxKv10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Kv10otv = (String) comboBoxKv10.getSelectedItem();
+				}
+			});	
+		Kc=1;
 		
 		JLabel labelKpov = new JLabel("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u041A\u043F\u043E\u0432:");
 		labelKpov.setBounds(10, 136, 381, 14);
@@ -270,7 +299,7 @@ public class TestGUI {
 		textFieldKpov.setBounds(401, 133, 29, 20);
 		frame.getContentPane().add(textFieldKpov);
 		textFieldKpov.setColumns(10);
-		String Kpov = textFieldKpov.getText();
+		Kpov=textFieldKpov.getText();
 		
 		JLabel labelNe = new JLabel("\u041E\u0431\u0449\u0435\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u0438\u0432\u043D\u044B\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432 \u0434\u0435\u0442\u0430\u043B\u0438:");
 		labelNe.setBounds(10, 161, 381, 14);
@@ -279,7 +308,7 @@ public class TestGUI {
 		JSpinner spinnerNe = new JSpinner();
 		spinnerNe.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
-  	 			int Ne = (Integer)spinnerNe.getValue();
+  	 			Ne = (Integer)spinnerNe.getValue();
   	 			}
   	 		});
 		spinnerNe.setBounds(401, 158, 29, 20);
@@ -292,7 +321,7 @@ public class TestGUI {
 		JSpinner spinnerNue = new JSpinner();
 		spinnerNue.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
-  	 			int Nue = (Integer)spinnerNue.getValue();
+  	 			Nue = (Integer)spinnerNue.getValue();
   	 			}
   	 		});
 		spinnerNue.setBounds(401, 183, 29, 20);
@@ -306,6 +335,7 @@ public class TestGUI {
 		spinnern.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int n = (Integer)spinnern.getValue();
+  	 			Kue=Nue/Ne-0.1*n;
   	 			}
   	 		});
 		spinnern.setBounds(401, 208, 29, 20);
@@ -318,7 +348,7 @@ public class TestGUI {
 		JSpinner spinnerVz = new JSpinner();
 		spinnerVz.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
-  	 			int Vz = (Integer)spinnerVz.getValue();
+  	 			Vz = (Integer)spinnerVz.getValue();
   	 			}
   	 		});
 		spinnerVz.setBounds(401, 233, 29, 20);
@@ -332,6 +362,7 @@ public class TestGUI {
 		spinnerVd.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {
   	 			int Vd = (Integer)spinnerVd.getValue();
+  	 			Kim=Vd/Vz;
   	 			}
   	 		});
 		spinnerVd.setBounds(401, 258, 29, 20);
@@ -344,7 +375,9 @@ public class TestGUI {
 		JButton buttonKt = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
 		buttonKt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textAreaKt.setText(""+Kom);
+				Ksl=0.25*(Kk+Kp+Kv+Kc);
+				Kt=(Kom*0.8+Ksl*0.7+Double.valueOf(Kpov)*0.6+Kue*0.7+Kim)/(0.8+0.7+0.6+0.7+1);
+				textAreaKt.setText(""+Kom+" "+Kk+" "+Kp+" "+Kv+" "+Kc+" "+" "+Kpov+" "+Ksl+" "+Kue+" "+Kim+" "+Kt);
 				}
 		});
 		buttonKt.setBounds(10, 286, 115, 23);
