@@ -6,7 +6,6 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
@@ -29,10 +28,9 @@ public class TestGUI {
 	double Vz;
 	double Kim;
 	double Kt;
-	String Kpov;
+	double Kpov;
 
 	private JFrame frame;
-	private JTextField textFieldKpov;
 
 	/**
 	 * Launch the application.
@@ -130,7 +128,7 @@ public class TestGUI {
 			    "34ум3л",
 			    "34умл3т"
 			};
-		JComboBox<String> comboBoxMarka = new JComboBox<String>(marki);
+		JComboBox<String> comboBoxMarka = new JComboBox(marki);
 		comboBoxMarka.setBounds(135, 8, 143, 20);
 		frame.getContentPane().add(comboBoxMarka);
 		comboBoxMarka.addActionListener(new ActionListener() {
@@ -281,7 +279,7 @@ public class TestGUI {
 			    "ДЮ"
 			};
 		
-		JComboBox<String> comboBoxKv10 = new JComboBox<String>(Kv10);
+		JComboBox<String> comboBoxKv10 = new JComboBox(Kv10);
 		comboBoxKv10.setBounds(401, 108, 28, 20);
 		frame.getContentPane().add(comboBoxKv10);
 		comboBoxKv10.addActionListener(new ActionListener() {
@@ -295,11 +293,14 @@ public class TestGUI {
 		labelKpov.setBounds(10, 136, 381, 14);
 		frame.getContentPane().add(labelKpov);
 		
-		textFieldKpov = new JTextField();
-		textFieldKpov.setBounds(401, 133, 29, 20);
-		frame.getContentPane().add(textFieldKpov);
-		textFieldKpov.setColumns(10);
-		Kpov=textFieldKpov.getText();
+		JSpinner spinnerKpov = new JSpinner();
+		spinnerKpov.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
+  	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
+  	 			Kpov = (Double)spinnerKpov.getValue();
+  	 			}
+  	 		});
+		spinnerKpov.setBounds(401, 133, 29, 20);
+		frame.getContentPane().add(spinnerKpov);
 		
 		JLabel labelNe = new JLabel("\u041E\u0431\u0449\u0435\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u0438\u0432\u043D\u044B\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432 \u0434\u0435\u0442\u0430\u043B\u0438:");
 		labelNe.setBounds(10, 161, 381, 14);
