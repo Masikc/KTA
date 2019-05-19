@@ -14,21 +14,9 @@ import java.awt.event.ActionEvent;
 
 public class TestGUI {
 	
-	String mat;
-	double Kom;
-	double Kk;
-	double Kp;
-	double Kv;
-	double Kc;
-	double Ksl;
-	String Kv10otv;
-	double Kue;
-	int Ne;
-	int Nue;
-	double Vz;
-	double Kim;
-	double Kt;
-	double Kpov;
+	String mat,Kv10otv;
+	double Kom,Kk,Kp,Kv,Kc,Ksl,Kue,Vz,Kim,Kt,Kpov;
+	int Ne,Nue;
 
 	private JFrame frame;
 
@@ -278,16 +266,27 @@ public class TestGUI {
 			    "нет",
 			    "да"
 			};
-		
+
 		JComboBox<String> comboBoxKv10 = new JComboBox(Kv10);
 		comboBoxKv10.setBounds(401, 108, 28, 20);
 		frame.getContentPane().add(comboBoxKv10);
 		comboBoxKv10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Kv10otv = (String) comboBoxKv10.getSelectedItem();
+				Kc=1;
+				if (Kv10otv=="да")
+				{
+					DialogKv10 dialog = new DialogKv10();
+					dialog.setVisible(true);
+					double A4=0.1*(DialogKv10.N1+DialogKv10.N2+DialogKv10.N3+DialogKv10.N4);
+					if (A4>1)
+		            {
+		            	A4=1;
+		            }
+		            Kc=1-A4;
+				}
 				}
 			});	
-		Kc=1;
 		
 		JLabel labelKpov = new JLabel("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u041A\u043F\u043E\u0432:");
 		labelKpov.setBounds(10, 136, 381, 14);
@@ -372,12 +371,12 @@ public class TestGUI {
 		JTextArea textAreaKt = new JTextArea();
 		textAreaKt.setBounds(10, 320, 420, 30);
 		frame.getContentPane().add(textAreaKt);
-		
+			
 		JButton buttonKt = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
 		buttonKt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Ksl=0.25*(Kk+Kp+Kv+Kc);
-				Kt=(Kom*0.8+Ksl*0.7+Double.valueOf(Kpov)*0.6+Kue*0.7+Kim)/(0.8+0.7+0.6+0.7+1);
+				Kt=(Kom*0.8+Ksl*0.7+Kpov*0.6+Kue*0.7+Kim)/(0.8+0.7+0.6+0.7+1);
 				textAreaKt.setText(""+Kom+" "+Kk+" "+Kp+" "+Kv+" "+Kc+" "+" "+Kpov+" "+Ksl+" "+Kue+" "+Kim+" "+Kt);
 				}
 		});
