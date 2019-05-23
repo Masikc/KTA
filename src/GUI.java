@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TestGUI {
+public class GUI {
 	
 	String mat,Kv10otv;
 	double Kom,Kk,Kp,Kv,Kc,Ksl,Kue,Vz,Kim,Kt,Kpov;
@@ -27,7 +27,7 @@ public class TestGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TestGUI window = new TestGUI();
+					GUI window = new GUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class TestGUI {
 	/**
 	 * Create the application.
 	 */
-	public TestGUI() {
+	public GUI() {
 		initialize();
 	}
 
@@ -48,7 +48,7 @@ public class TestGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 460, 400);
+		frame.setBounds(100, 100, 705, 461);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -57,6 +57,7 @@ public class TestGUI {
 		frame.getContentPane().add(labelMarka);
 		
 		String[] marki = {
+				"",
 			    "ÂÆ36-12",
 			    "ÀÍÂ-300",
 			    "ÆÑ6-Ê",
@@ -210,7 +211,7 @@ public class TestGUI {
 			});
 		
 		JLabel labelKrez = new JLabel("\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u0435\u0439 \u0434\u0435\u0442\u0430\u043B\u0438, \u043E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u043C\u044B\u0445 \u0440\u0435\u0437\u0430\u043D\u0438\u0435\u043C:");
-		labelKrez.setBounds(10, 36, 381, 14);
+		labelKrez.setBounds(10, 36, 608, 14);
 		frame.getContentPane().add(labelKrez);
 		
 		JSpinner spinnerKrez = new JSpinner();
@@ -222,11 +223,11 @@ public class TestGUI {
   	 	        Kk=1-A1;
   	 			}
   	 		});
-		spinnerKrez.setBounds(401, 33, 29, 20);
+		spinnerKrez.setBounds(628, 33, 51, 20);
 		frame.getContentPane().add(spinnerKrez);
 		
 		JLabel labelKtreb = new JLabel("\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0432\u044B\u0448\u0435\u043D\u043D\u044B\u0445 \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u0439 \u043F\u043E \u0442\u043E\u0447\u043D\u043E\u0441\u0442\u044F\u043C \u0444\u043E\u0440\u043C\u044B \u0438 \u0432\u0437\u0430\u0438\u043C\u043D\u043E\u0433\u043E \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u0435\u0439:");
-		labelKtreb.setBounds(10, 61, 381, 14);
+		labelKtreb.setBounds(10, 61, 608, 14);
 		frame.getContentPane().add(labelKtreb);
 		
 		JSpinner spinnerKtreb = new JSpinner();
@@ -239,11 +240,11 @@ public class TestGUI {
   	 	        Kp=1-A2;
   	 			}
   	 		});
-		spinnerKtreb.setBounds(401, 58, 29, 20);
+		spinnerKtreb.setBounds(628, 58, 51, 20);
 		frame.getContentPane().add(spinnerKtreb);
 		
 		JLabel labelKmeh = new JLabel("\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432\u0438\u0434\u043E\u0432 \u043C\u0435\u0445\u0430\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438:");
-		labelKmeh.setBounds(10, 86, 381, 14);
+		labelKmeh.setBounds(10, 86, 608, 14);
 		frame.getContentPane().add(labelKmeh);
 		
 		JSpinner spinnerKmeh = new JSpinner();
@@ -255,11 +256,11 @@ public class TestGUI {
   	 	        Kv=1-A3;
   	 			}
   	 		});
-		spinnerKmeh.setBounds(401, 83, 29, 20);
+		spinnerKmeh.setBounds(628, 83, 51, 20);
 		frame.getContentPane().add(spinnerKmeh);
 		
 		JLabel labelKv10 = new JLabel("\u041D\u0430 \u0434\u0435\u0442\u0430\u043B\u0438 \u0435\u0441\u0442\u044C \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u0438, \u043E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u043C\u044B\u0435 \u0440\u0435\u0437\u0430\u043D\u0438\u0435\u043C \u043D\u0435 \u0433\u0440\u0443\u0431\u0435\u0435 10-\u0433\u043E \u043A\u0432\u0430\u043B\u0438\u0442\u0435\u0442\u0430?:");
-		labelKv10.setBounds(10, 111, 381, 14);
+		labelKv10.setBounds(10, 111, 608, 14);
 		frame.getContentPane().add(labelKv10);
 		
 		String[] Kv10 = {
@@ -268,7 +269,7 @@ public class TestGUI {
 			};
 
 		JComboBox<String> comboBoxKv10 = new JComboBox(Kv10);
-		comboBoxKv10.setBounds(401, 108, 28, 20);
+		comboBoxKv10.setBounds(629, 108, 50, 20);
 		frame.getContentPane().add(comboBoxKv10);
 		comboBoxKv10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -288,8 +289,8 @@ public class TestGUI {
 				}
 			});	
 		
-		JLabel labelKpov = new JLabel("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u041A\u043F\u043E\u0432:");
-		labelKpov.setBounds(10, 136, 381, 14);
+		JLabel labelKpov = new JLabel("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u043E\u044D\u0444\u0444\u0438\u0446\u0438\u0435\u043D\u0442 \u0442\u043E\u0447\u043D\u043E\u0441\u0442\u0438 \u0438 \u0448\u0435\u0440\u043E\u0445\u043E\u0432\u0430\u0442\u043E\u0441\u0442\u0438 \u043F\u043E\u0432\u0435\u0440\u0445\u043D\u043E\u0441\u0442\u0435\u0439 \u0434\u0435\u0442\u0430\u043B\u0438 (\u041A\u043F\u043E\u0432):");
+		labelKpov.setBounds(10, 136, 608, 14);
 		frame.getContentPane().add(labelKpov);
 		
 		JSpinner spinnerKpov = new JSpinner();
@@ -298,11 +299,11 @@ public class TestGUI {
   	 			Kpov = (Double)spinnerKpov.getValue();
   	 			}
   	 		});
-		spinnerKpov.setBounds(401, 133, 29, 20);
+		spinnerKpov.setBounds(628, 133, 51, 20);
 		frame.getContentPane().add(spinnerKpov);
 		
 		JLabel labelNe = new JLabel("\u041E\u0431\u0449\u0435\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u0438\u0432\u043D\u044B\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432 \u0434\u0435\u0442\u0430\u043B\u0438:");
-		labelNe.setBounds(10, 161, 381, 14);
+		labelNe.setBounds(10, 161, 608, 14);
 		frame.getContentPane().add(labelNe);
 		
 		JSpinner spinnerNe = new JSpinner();
@@ -311,11 +312,11 @@ public class TestGUI {
   	 			Ne = (Integer)spinnerNe.getValue();
   	 			}
   	 		});
-		spinnerNe.setBounds(401, 158, 29, 20);
+		spinnerNe.setBounds(628, 158, 51, 20);
 		frame.getContentPane().add(spinnerNe);
 		
 		JLabel labelNue = new JLabel("\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0443\u043D\u0438\u0444\u0438\u0446\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0445 \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u0438\u0432\u043D\u044B\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0434\u0435\u0442\u0430\u043B\u0438:");
-		labelNue.setBounds(10, 186, 381, 14);
+		labelNue.setBounds(10, 186, 608, 14);
 		frame.getContentPane().add(labelNue);
 		
 		JSpinner spinnerNue = new JSpinner();
@@ -324,11 +325,11 @@ public class TestGUI {
   	 			Nue = (Integer)spinnerNue.getValue();
   	 			}
   	 		});
-		spinnerNue.setBounds(401, 183, 29, 20);
+		spinnerNue.setBounds(628, 183, 51, 20);
 		frame.getContentPane().add(spinnerNue);
 		
 		JLabel labeln = new JLabel("\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043D\u0435\u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0447\u043D\u044B\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0434\u0435\u0442\u0430\u043B\u0438:");
-		labeln.setBounds(10, 211, 381, 14);
+		labeln.setBounds(10, 211, 608, 14);
 		frame.getContentPane().add(labeln);
 		
 		JSpinner spinnern = new JSpinner();
@@ -338,11 +339,11 @@ public class TestGUI {
   	 			Kue=Nue/Ne-0.1*n;
   	 			}
   	 		});
-		spinnern.setBounds(401, 208, 29, 20);
+		spinnern.setBounds(628, 208, 51, 20);
 		frame.getContentPane().add(spinnern);
 		
 		JLabel labelVz = new JLabel("\u041E\u0431\u044A\u0435\u043C \u0437\u0430\u0433\u043E\u0442\u043E\u0432\u043A\u0438 \u0434\u0435\u0442\u0430\u043B\u0438:");
-		labelVz.setBounds(10, 236, 381, 14);
+		labelVz.setBounds(10, 236, 608, 14);
 		frame.getContentPane().add(labelVz);
 		
 		JSpinner spinnerVz = new JSpinner();
@@ -351,11 +352,11 @@ public class TestGUI {
   	 			Vz = (Integer)spinnerVz.getValue();
   	 			}
   	 		});
-		spinnerVz.setBounds(401, 233, 29, 20);
+		spinnerVz.setBounds(628, 233, 51, 20);
 		frame.getContentPane().add(spinnerVz);
 		
 		JLabel labelVd = new JLabel("\u041E\u0431\u044A\u0435\u043C \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u043E\u0439 \u0434\u0435\u0442\u0430\u043B\u0438 (\u0431\u0435\u0437 \u043F\u043E\u043A\u0440\u044B\u0442\u0438\u0439):");
-		labelVd.setBounds(10, 261, 381, 14);
+		labelVd.setBounds(10, 261, 608, 14);
 		frame.getContentPane().add(labelVd);
 		
 		JSpinner spinnerVd = new JSpinner();
@@ -365,11 +366,11 @@ public class TestGUI {
   	 			Kim=Vd/Vz;
   	 			}
   	 		});
-		spinnerVd.setBounds(401, 258, 29, 20);
+		spinnerVd.setBounds(628, 258, 51, 20);
 		frame.getContentPane().add(spinnerVd);
 		
 		JTextArea textAreaKt = new JTextArea();
-		textAreaKt.setBounds(10, 320, 420, 30);
+		textAreaKt.setBounds(10, 320, 669, 91);
 		frame.getContentPane().add(textAreaKt);
 			
 		JButton buttonKt = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
