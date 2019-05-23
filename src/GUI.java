@@ -4,8 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.text.html.HTML;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
@@ -48,7 +50,8 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 705, 461);
+		frame.setTitle("Конструкторско-технологический анализ детали");
+		frame.setBounds(100, 100, 705, 390);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -214,7 +217,12 @@ public class GUI {
 		labelKrez.setBounds(10, 36, 608, 14);
 		frame.getContentPane().add(labelKrez);
 		
-		JSpinner spinnerKrez = new JSpinner();
+		Integer value = new Integer(0);
+		Integer min = new Integer(0);
+		Integer max = new Integer(1000);
+		Integer step = new Integer(1);
+		SpinnerNumberModel model = new SpinnerNumberModel(value, min, max, step);
+		JSpinner spinnerKrez = new JSpinner(model);
 		spinnerKrez.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Krez = (Integer)spinnerKrez.getValue();
@@ -230,7 +238,7 @@ public class GUI {
 		labelKtreb.setBounds(10, 61, 608, 14);
 		frame.getContentPane().add(labelKtreb);
 		
-		JSpinner spinnerKtreb = new JSpinner();
+		JSpinner spinnerKtreb = new JSpinner(model);
 		spinnerKtreb.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Ktreb = (Integer)spinnerKtreb.getValue();
@@ -247,7 +255,7 @@ public class GUI {
 		labelKmeh.setBounds(10, 86, 608, 14);
 		frame.getContentPane().add(labelKmeh);
 		
-		JSpinner spinnerKmeh = new JSpinner();
+		JSpinner spinnerKmeh = new JSpinner(model);
 		spinnerKmeh.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Kmeh = (Integer)spinnerKmeh.getValue();
@@ -293,7 +301,12 @@ public class GUI {
 		labelKpov.setBounds(10, 136, 608, 14);
 		frame.getContentPane().add(labelKpov);
 		
-		JSpinner spinnerKpov = new JSpinner();
+		Double znach = new Double(0);
+		Double minim = new Double(-1000);
+		Double maxim = new Double(1000);
+		Double st = new Double(0.1);
+		SpinnerNumberModel model2 = new SpinnerNumberModel(znach, minim, maxim, st);
+		JSpinner spinnerKpov = new JSpinner(model2);
 		spinnerKpov.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Kpov = (Double)spinnerKpov.getValue();
@@ -306,7 +319,7 @@ public class GUI {
 		labelNe.setBounds(10, 161, 608, 14);
 		frame.getContentPane().add(labelNe);
 		
-		JSpinner spinnerNe = new JSpinner();
+		JSpinner spinnerNe = new JSpinner(model);
 		spinnerNe.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Ne = (Integer)spinnerNe.getValue();
@@ -319,7 +332,7 @@ public class GUI {
 		labelNue.setBounds(10, 186, 608, 14);
 		frame.getContentPane().add(labelNue);
 		
-		JSpinner spinnerNue = new JSpinner();
+		JSpinner spinnerNue = new JSpinner(model);
 		spinnerNue.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Nue = (Integer)spinnerNue.getValue();
@@ -332,7 +345,7 @@ public class GUI {
 		labeln.setBounds(10, 211, 608, 14);
 		frame.getContentPane().add(labeln);
 		
-		JSpinner spinnern = new JSpinner();
+		JSpinner spinnern = new JSpinner(model);
 		spinnern.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int n = (Integer)spinnern.getValue();
@@ -346,10 +359,15 @@ public class GUI {
 		labelVz.setBounds(10, 236, 608, 14);
 		frame.getContentPane().add(labelVz);
 		
-		JSpinner spinnerVz = new JSpinner();
+		Double znachenie = new Double(0);
+		Double minimum = new Double(0);
+		Double maximum = new Double(1000);
+		Double shag = new Double(0.1);
+		SpinnerNumberModel model3 = new SpinnerNumberModel(znachenie, minimum, maximum, shag);
+		JSpinner spinnerVz = new JSpinner(model3);
 		spinnerVz.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
-  	 			Vz = (Integer)spinnerVz.getValue();
+  	 			Vz = (Double)spinnerVz.getValue();
   	 			}
   	 		});
 		spinnerVz.setBounds(628, 233, 51, 20);
@@ -359,10 +377,10 @@ public class GUI {
 		labelVd.setBounds(10, 261, 608, 14);
 		frame.getContentPane().add(labelVd);
 		
-		JSpinner spinnerVd = new JSpinner();
+		JSpinner spinnerVd = new JSpinner(model3);
 		spinnerVd.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {
-  	 			int Vd = (Integer)spinnerVd.getValue();
+  	 			Double Vd = (Double)spinnerVd.getValue();
   	 			Kim=Vd/Vz;
   	 			}
   	 		});
@@ -370,7 +388,7 @@ public class GUI {
 		frame.getContentPane().add(spinnerVd);
 		
 		JTextArea textAreaKt = new JTextArea();
-		textAreaKt.setBounds(10, 320, 669, 91);
+		textAreaKt.setBounds(10, 320, 544, 16);
 		frame.getContentPane().add(textAreaKt);
 			
 		JButton buttonKt = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
@@ -378,10 +396,30 @@ public class GUI {
 			public void actionPerformed(ActionEvent e) {
 				Ksl=0.25*(Kk+Kp+Kv+Kc);
 				Kt=(Kom*0.8+Ksl*0.7+Kpov*0.6+Kue*0.7+Kim)/(0.8+0.7+0.6+0.7+1);
-				textAreaKt.setText(""+Kom+" "+Kk+" "+Kp+" "+Kv+" "+Kc+" "+" "+Kpov+" "+Ksl+" "+Kue+" "+Kim+" "+Kt);
+				textAreaKt.setText("Комплексный показатель технологичности: "+Kt);
 				}
 		});
 		buttonKt.setBounds(10, 286, 115, 23);
 		frame.getContentPane().add(buttonKt);
+		
+		JTextArea textAreaDetail = new JTextArea();
+		textAreaDetail.setVisible(false);
+		textAreaDetail.setBounds(10, 347, 669, 83);
+		frame.getContentPane().add(textAreaDetail);
+		
+		JButton buttonDetail = new JButton("\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435");
+		buttonDetail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setBounds(100, 100, 705, 480);
+				textAreaDetail.setVisible(true);
+				textAreaDetail.setText("Коэффициент обрабатываемости материала: "+Kom+"\n"
+				+"Коэффициент сложности конструкции детали: "+Ksl+"\n"
+				+"Коэффициент точности и шероховатости поверхностей: "+Kpov+"\n"
+				+"Коэффициент унификации конструктивных элементов: "+Kue+"\n"
+				+"Коэффициент использования материала: "+Kim);
+				}
+		});
+		buttonDetail.setBounds(564, 316, 115, 23);
+		frame.getContentPane().add(buttonDetail);
 	}
 }

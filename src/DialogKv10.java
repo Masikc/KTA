@@ -16,6 +16,7 @@ public class DialogKv10 extends JDialog {
 	public DialogKv10() {
         setVisible(false);
         setSize(555, 180);
+        setTitle("Коэффициент соответствия оптимальным величинам");
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
         
