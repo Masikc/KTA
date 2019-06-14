@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JButton;
@@ -11,7 +12,7 @@ import javax.swing.JButton;
 
 public class DialogKv10 extends JDialog {
 	
-	static int N1,N2,N3,N4;
+	static double N1=0,N2=0,N3=0,N4=0,Kc=1;
 
 	public DialogKv10() {
         setVisible(false);
@@ -24,7 +25,12 @@ public class DialogKv10 extends JDialog {
         labelN1.setBounds(10, 11, 460, 14);
         getContentPane().add(labelN1);
         
-        JSpinner spinnerN1 = new JSpinner();
+        Integer value6 = new Integer(0);
+		Integer min6 = new Integer(0);
+		Integer max6 = new Integer(1000);
+		Integer step6 = new Integer(1);
+		SpinnerNumberModel model6 = new SpinnerNumberModel(value6, min6, max6, step6);
+        JSpinner spinnerN1 = new JSpinner(model6);
         spinnerN1.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			N1 = (Integer)spinnerN1.getValue();
@@ -37,7 +43,12 @@ public class DialogKv10 extends JDialog {
         labelN2.setBounds(10, 36, 460, 14);
         getContentPane().add(labelN2);
         
-        JSpinner spinnerN2 = new JSpinner();
+        Integer value7 = new Integer(0);
+		Integer min7 = new Integer(0);
+		Integer max7 = new Integer(1000);
+		Integer step7 = new Integer(1);
+		SpinnerNumberModel model7 = new SpinnerNumberModel(value7, min7, max7, step7);
+        JSpinner spinnerN2 = new JSpinner(model7);
         spinnerN2.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			N2 = (Integer)spinnerN2.getValue();
@@ -50,7 +61,12 @@ public class DialogKv10 extends JDialog {
         labelN3.setBounds(10, 61, 460, 14);
         getContentPane().add(labelN3);
         
-        JSpinner spinnerN3 = new JSpinner();
+        Integer value8 = new Integer(0);
+		Integer min8 = new Integer(0);
+		Integer max8 = new Integer(1000);
+		Integer step8 = new Integer(1);
+		SpinnerNumberModel model8 = new SpinnerNumberModel(value8, min8, max8, step8);
+        JSpinner spinnerN3 = new JSpinner(model8);
         spinnerN3.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			N3 = (Integer)spinnerN3.getValue();
@@ -63,7 +79,12 @@ public class DialogKv10 extends JDialog {
         labelN4.setBounds(10, 86, 460, 14);
         getContentPane().add(labelN4);
         
-        JSpinner spinnerN4 = new JSpinner();
+        Integer value9 = new Integer(0);
+		Integer min9 = new Integer(0);
+		Integer max9 = new Integer(1000);
+		Integer step9 = new Integer(1);
+		SpinnerNumberModel model9 = new SpinnerNumberModel(value9, min9, max9, step9);
+        JSpinner spinnerN4 = new JSpinner(model9);
         spinnerN4.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			N4 = (Integer)spinnerN4.getValue();
@@ -75,6 +96,12 @@ public class DialogKv10 extends JDialog {
         JButton btnOk = new JButton("OK");
         btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				double A4=0.1*(N1+2*N2+3*N3+4*N4);
+				if (A4>1)
+		        {
+					A4=1;
+		        }
+				Kc=1-A4;
 				setVisible(false);
 				}
 		});

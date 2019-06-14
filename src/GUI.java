@@ -7,18 +7,15 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.text.html.HTML;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GUI {
 	
 	String mat,Kv10otv;
-	double Kom,Kk,Kp,Kv,Kc,Ksl,Kue,Vz,Kim,Kt,Kpov;
-	int Ne,Nue;
+	double Kom,Kk=1,Kp=1,Kv=1,Ksl,Kue,Vz,Kim,Kt,Kpov,Ne=0,Nue=0,n=0;
 
 	private JFrame frame;
 
@@ -71,6 +68,7 @@ public class GUI {
 			    "ÕÍ82ÒŞÌÂ",
 			    "ÕÍ56ÌÒŞ",
 			    "ÕÍ70ÂÌÒŞ",
+			    "ÕÍ73ÌÁÒŞ-ÂÄ",
 			    "ÂÕ4-Ë",
 			    "95Õ18",
 			    "ÕÍ35ÂÒŞ",
@@ -139,6 +137,7 @@ public class GUI {
 		                 break;
 		        case "ÕÍ56ÌÒŞ":
 		        case "ÕÍ70ÂÌÒŞ":
+		        case "ÕÍ73ÌÁÒŞ-ÂÄ":	
 		        case "ÂÕ4-Ë": Kom=0.04;
 		                 break;
 		        case "95Õ18":
@@ -238,7 +237,12 @@ public class GUI {
 		labelKtreb.setBounds(10, 61, 608, 14);
 		frame.getContentPane().add(labelKtreb);
 		
-		JSpinner spinnerKtreb = new JSpinner(model);
+		Integer value1 = new Integer(0);
+		Integer min1 = new Integer(0);
+		Integer max1 = new Integer(1000);
+		Integer step1 = new Integer(1);
+		SpinnerNumberModel model1 = new SpinnerNumberModel(value1, min1, max1, step1);
+		JSpinner spinnerKtreb = new JSpinner(model1);
 		spinnerKtreb.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Ktreb = (Integer)spinnerKtreb.getValue();
@@ -255,7 +259,12 @@ public class GUI {
 		labelKmeh.setBounds(10, 86, 608, 14);
 		frame.getContentPane().add(labelKmeh);
 		
-		JSpinner spinnerKmeh = new JSpinner(model);
+		Integer value2 = new Integer(0);
+		Integer min2 = new Integer(0);
+		Integer max2 = new Integer(1000);
+		Integer step2 = new Integer(1);
+		SpinnerNumberModel model2 = new SpinnerNumberModel(value2, min2, max2, step2);
+		JSpinner spinnerKmeh = new JSpinner(model2);
 		spinnerKmeh.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			int Kmeh = (Integer)spinnerKmeh.getValue();
@@ -282,17 +291,10 @@ public class GUI {
 		comboBoxKv10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Kv10otv = (String) comboBoxKv10.getSelectedItem();
-				Kc=1;
 				if (Kv10otv=="äà")
 				{
 					DialogKv10 dialog = new DialogKv10();
 					dialog.setVisible(true);
-					double A4=0.1*(DialogKv10.N1+DialogKv10.N2+DialogKv10.N3+DialogKv10.N4);
-					if (A4>1)
-		            {
-		            	A4=1;
-		            }
-		            Kc=1-A4;
 				}
 				}
 			});	
@@ -305,8 +307,8 @@ public class GUI {
 		Double minim = new Double(-1000);
 		Double maxim = new Double(1000);
 		Double st = new Double(0.1);
-		SpinnerNumberModel model2 = new SpinnerNumberModel(znach, minim, maxim, st);
-		JSpinner spinnerKpov = new JSpinner(model2);
+		SpinnerNumberModel modeld = new SpinnerNumberModel(znach, minim, maxim, st);
+		JSpinner spinnerKpov = new JSpinner(modeld);
 		spinnerKpov.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Kpov = (Double)spinnerKpov.getValue();
@@ -319,7 +321,12 @@ public class GUI {
 		labelNe.setBounds(10, 161, 608, 14);
 		frame.getContentPane().add(labelNe);
 		
-		JSpinner spinnerNe = new JSpinner(model);
+		Integer value3 = new Integer(0);
+		Integer min3 = new Integer(0);
+		Integer max3 = new Integer(1000);
+		Integer step3 = new Integer(1);
+		SpinnerNumberModel model3 = new SpinnerNumberModel(value3, min3, max3, step3);
+		JSpinner spinnerNe = new JSpinner(model3);
 		spinnerNe.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Ne = (Integer)spinnerNe.getValue();
@@ -332,7 +339,12 @@ public class GUI {
 		labelNue.setBounds(10, 186, 608, 14);
 		frame.getContentPane().add(labelNue);
 		
-		JSpinner spinnerNue = new JSpinner(model);
+		Integer value4 = new Integer(0);
+		Integer min4 = new Integer(0);
+		Integer max4 = new Integer(1000);
+		Integer step4 = new Integer(1);
+		SpinnerNumberModel model4 = new SpinnerNumberModel(value4, min4, max4, step4);
+		JSpinner spinnerNue = new JSpinner(model4);
 		spinnerNue.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Nue = (Integer)spinnerNue.getValue();
@@ -345,11 +357,15 @@ public class GUI {
 		labeln.setBounds(10, 211, 608, 14);
 		frame.getContentPane().add(labeln);
 		
-		JSpinner spinnern = new JSpinner(model);
+		Integer value5 = new Integer(0);
+		Integer min5 = new Integer(0);
+		Integer max5 = new Integer(1000);
+		Integer step5 = new Integer(1);
+		SpinnerNumberModel model5 = new SpinnerNumberModel(value5, min5, max5, step5);
+		JSpinner spinnern = new JSpinner(model5);
 		spinnern.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
-  	 			int n = (Integer)spinnern.getValue();
-  	 			Kue=Nue/Ne-0.1*n;
+  	 			n = (Integer)spinnern.getValue();
   	 			}
   	 		});
 		spinnern.setBounds(628, 208, 51, 20);
@@ -363,8 +379,8 @@ public class GUI {
 		Double minimum = new Double(0);
 		Double maximum = new Double(1000);
 		Double shag = new Double(0.1);
-		SpinnerNumberModel model3 = new SpinnerNumberModel(znachenie, minimum, maximum, shag);
-		JSpinner spinnerVz = new JSpinner(model3);
+		SpinnerNumberModel modeld1 = new SpinnerNumberModel(znachenie, minimum, maximum, shag);
+		JSpinner spinnerVz = new JSpinner(modeld1);
 		spinnerVz.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {  	 	 	 	  	 	 	 	
   	 			Vz = (Double)spinnerVz.getValue();
@@ -377,7 +393,12 @@ public class GUI {
 		labelVd.setBounds(10, 261, 608, 14);
 		frame.getContentPane().add(labelVd);
 		
-		JSpinner spinnerVd = new JSpinner(model3);
+		Double znachenie2 = new Double(0);
+		Double minimum2 = new Double(0);
+		Double maximum2 = new Double(1000);
+		Double shag2 = new Double(0.1);
+		SpinnerNumberModel modeld2 = new SpinnerNumberModel(znachenie2, minimum2, maximum2, shag2);
+		JSpinner spinnerVd = new JSpinner(modeld2);
 		spinnerVd.addChangeListener(new ChangeListener() {  	 	 	  	 	 	 	 	 	
   	 		public void stateChanged(ChangeEvent e) {
   	 			Double Vd = (Double)spinnerVd.getValue();
@@ -394,7 +415,8 @@ public class GUI {
 		JButton buttonKt = new JButton("\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C");
 		buttonKt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Ksl=0.25*(Kk+Kp+Kv+Kc);
+				Ksl=0.25*(Kk+Kp+Kv+DialogKv10.Kc);
+				Kue=Nue/Ne-0.1*n;
 				Kt=(Kom*0.8+Ksl*0.7+Kpov*0.6+Kue*0.7+Kim)/(0.8+0.7+0.6+0.7+1);
 				textAreaKt.setText("Êîìïëåêñíûé ïîêàçàòåëü òåõíîëîãè÷íîñòè: "+Kt);
 				}
